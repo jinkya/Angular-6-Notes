@@ -192,7 +192,8 @@ ng g c server/server
 				{{member}}
 
 ## 38 Getting the index using ngFor
-		index
+		index reserved keyword
+		*ngFor = "item of items; let i = index"
 
 -----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
@@ -238,7 +239,8 @@ ng g c server/server
 ## 56 Understanding Angular rror messages
 		console 
 ## 57 Debugging code in the browser using SourceMaps
-		editor > sources > webpack > . > src > app > go onnnnnnn
+		debugger > sources > main.bundle > serach > place a break point & redirect to the ts file.
+		debug editor > sources > webpack > . > src > app > go onnnnnnn
 		source map files allowed browser to translate js in to ts or simply map our js code to ts file
 ## 58 Using Augury to Dive into Angular Apps
 		chrome extension
@@ -248,19 +250,81 @@ ng g c server/server
 # Components and DataBinding Deep dive
 
 ## 59 Module Introduction
+	...
 ## 60 Splitting app into components
+	Split your app into multiple components according to the modularity.
 ## 61 Property and Event Binding Overview
+	eg_ (click) [disabled] $event
+	HTML Elements					Directives						Components
+	Native property and Events		Custom properties and events	Custom properties and events
 ## 62 Binding to Custom Properties
+	Parent component to child component
+	<child-component-tag [childElement]="parentElement"> </child-component-tag>
+	@Input() childElement;
 ## 63 Assigning an alias to Custom Properties
+	<child-component-tag [srvElement]="parentElement"> </child-component-tag>
+	@Input('srvElement') childElement;
 ## 64 Binding to custom events
+	Getting data from child component via event
+
+	Parent component template
+				<child-component (childEmitterOne)="parentFunctionOne($event)"> </child-component>
+				
+	Parent component ts
+								  parentFunctionOne(someData) { }
+	Child component template
+								<button (click)="childFunctionOne()"> Add </button>
+	Child component ts
+								 @Output() childEmitterOne  = new EventEmitter<someData>();
+
+								    childFunctionOne(){
+    												this.childEmitterOne.emit(someData);
+  													}
+
 ## 65 Assigning an alias to Custom Events
+		@Output('someAliasname')
+
 ## 66 Custom Property and Event Binding Summary
+		Approach matters
+		Above @Input and @Output methods are okay for simple components data passing BUT
+		If components are related in a far distance use Services.
+		Its not like services are better than the above approach but things get simpliefied. 
 ## 67 Understanding View Ebcapsulation
+	eg._ Angular enforces style encapsulation ( Each component, each style like )
+	Shadow DOM
 ## 68 More on View Encapsulation
+	import { ViewEncapsulation } from '@angular/core';
+	@Component({
+		...
+		encapsulation: ViewEncapsulation.Emulated		// Native, None, Emulated(Default)
+	})
 ## 69 Using local references in Templates
+	Refers to the whole HTML element its present on.
+	Template
+			<input type="text" #refer>
+			<button (click)="funA(refer)"> </button>
+	Component
+			funA(data){ data.value }
 ## 70 Getting access to the template and DOM with @ViewChild
+	Get access of DOM inside ts
+	Template
+			<input type="text" class="form-control" #serverContentInput>
+	Component ts
+			 @ViewChild('serverContentInput') serverContentInput: ElementRef;         // CockpitComponent
+
 ## 71 Projecting Content into Components with ng-content
+	Passing HTML to pass into component from outside
+	explore more example...
 ## 72 Understanding the component lifecycle
+	Lifecycle
+		ngOnChnages					Called after a bound input property changes
+		ngOnInit					Called once the component initialised
+		ngDoCheck					Called during every change detection run
+		ngAfterContentInit			Called after content (ng-content) has been projected into view
+		ngAfterContentChecked		Called every time the projected content has been checked
+		ngAfterViewInit				Called after the components view (and childviews) has been initialised
+		 ngAfterViewChecked			Called every time the view (and childviews) has been checked
+		 ngOnDestroy				Called once the component is about to be destroyed
 ## 73 Seeing Lifecycle hooks in Action
 ## 74 Lifecycle hooks and Template access
 ## 75 Getting access to ng-content with @ContentChild
@@ -412,7 +476,18 @@ ng g c server/server
 -----------------------------------------------------------------------------------------------------------
 # Section 30
 # Angular 6 Changes and New Features
+## 396 What changed with Angular 6?
+	No breaking changes in Angular 6, easily fixable
+	Breaking changes introduced by its RxJS 6 Dependency.
 
+	RxJS 6
+	Observables library behind the scene like using HttpClinent
+	Internal package structure changed
+	-- Changed imports						-- Changed Operator Usage
+					Add backward compatibility with rxjs-compat
+	
+## 397 A first look at angular elements
+## 398 Additional resources and Articles
 -----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
 # Section 31
@@ -422,17 +497,94 @@ ng g c server/server
 -----------------------------------------------------------------------------------------------------------
 # Section 32
 # Typescript Introduction
-
+	
 ## 412 Introduction
+	...
 ## 413 Using Types
+	let a: string;			  // strong type String for a
+	let a = "test string";    // type infered as String thus
+	a = 4;					  // error
+
+	let a;						// declare without initializing thus type : any
+	a= 'hello';
+	a=4;						// no error But try to avoid this.
+
+	Basic types
+	string
+	number
+	boolean
+	Array<string>
+	any
+
+	avoid for function OR enum CAn also create your own types
+
 ## 414 Classes
+	class Car{
+		engineName: string;
+		gears: number;
+		private speed: number;
+
+		constructo(){
+			this.speed = speed || 0;
+		}
+		accelerate():void{
+			this.speed++;
+		}
+		throttle():void{
+			this.speed--;
+		}
+		getSpeed():void{
+			console.log(this.speed);
+		}
+		static numberOfWheels:number{
+			return 4;
+		}
+	}
+
+	let car = new Car(5);
+	car.accelerate();
+	car.getSpeed();
+
+	console.log(Car.nuberOfWheels);		// access method without instantiating the Object
+	
 ## 415 Interfaces
+	secure form of communication
+
+	interface User{
+		username: string;
+		password: string;
+		confirmPassword?: string;
+	}
+	let user:User;
+	user = {username:'ajinkya', password:'itssecret'};
+
+	Can also contain functions
+	interface CanDrive{
+		accelerate(speed:number): void;
+	}
+
+	let car:CanDrive{
+		accelerate: function (speed:number){
+			...
+		}
+	}
+
 ## 416 Generics
+	Allow us to be flexible regarding types of objects used
+	let numberArray: Array<number>;
+	numberArray = [3,7,4,5];
+
 ## 417 Wrap up and Modules
+// can export class, interface, variable,...
+	export class ExportedClass{
+		// this class can be exported
+	}
 ## 418 Deep dive into typescript
+	Normal js can be used to write Angular apps, but its extremely hard to find the reference resources.
+	www.typescriptlang.org
 -----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
-# Just remeber ;) 
+# Just remember ;) 
 
 		|| People don’t know what they want until you show it to them.
 		|| Perhaps it is good to have a beautiful mind, but an even greater gift is to discover 
@@ -448,3 +600,36 @@ ng g c server/server
 		   asked for forgiveness.
 		|| The soul usually knows what to do to heal itself. The challenge is to silence the mind.
 		|| 
+
+
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+
+NG CONF
+Lets build a form around it
+yusuf sani stackblitz
+
+Reactive Forms
+
+Building Blocks
+FormControl			FormGroup			FormArray
+
+Getting started
+	import { ReactiveFormModule } from "@angular/forms";
+	imports: [ReactiveFormModule]
+
+FormControl
+	Used to bind to individual inputs in Template
+
+	export class MyComponent{
+		public myFormControl: FormControl;
+
+		constructor(){
+			this.myFormControl = new FormControl('');
+		}
+	}
+
+	<input [formControl]="myFormControl" type="text" id="my-form" name="my-form">
+
+FormGroup
+	Works maily with the HTML "Form" Element
