@@ -735,14 +735,81 @@ generally parsed from left to right
 {{ started | date:'fullDate' | uppercase }}
 
 ### Creating a custom pipe
-
+ng generate pipe <pipe_name> --spec=false
 
 ### Parametrizing a custom pipe
-### Example : Creating a custom pipe
-### Pure and impure pipes ( How to fix the "filter pipe" )
-### Understanding the "async" pipe
-### Assignment 8: Practising pipes
+component
+<strong>{{ server.name | shorten:8:'hi' }}</strong>
+ts
+transform(value: any, limit: any, extra1?: any): any {
+  console.log(limit);
+  console.log(extra1);
 
+  return value;
+}
+
+### Example : Creating a custom pipe
+ts----
+  servers = [
+    {
+      instanceType: 'medium',
+      name: 'Production Server',
+      status: 'stable',
+      started: new Date(15, 1, 2017)
+    },....
+  ]
+
+filter----
+ng g p filter
+  transform(value: any, filterString: string, propName: string): any {
+    if(value.length === 0 || filterString === ''){
+      return value;
+    }
+    const resultArray = [];
+    for(const item of value){
+      if (item[propName]===filterString){
+        resultArray.push(item);
+      }
+    }
+    return resultArray;
+  }
+
+component----
+<input type="text" [(ngModel)]="filteredStatus">
+*ngFor="let server of servers | filter:filteredStatus:'status'"
+
+### Pure and impure pipes ( How to fix the "filter pipe" )
+Angular do not rerun the pipe whenever filter data changes but you can change that by
+pure: false;
+Pipe recalculation whenever data changes but can lead to performance issues.
+
+@Pipe({
+  name: 'filter',
+  pure: false
+})
+
+### Understanding the "async" pipe
+ts
+  appStatus = new Promise((resolve, reject)=>{
+    setTimeout( ()=> { resolve('stable'); } ,2000)
+  })
+
+component
+<p>App status {{ appStatus | async  }} </p>
+
+### Assignment 8: Practising pipes
+Reverse Pipe
+	value.split('').reverse('').join('')
+Sort Pipe
+transform(value: any, propName: string) 
+....
+	value.sort((a,b)=>{
+		if(a[propName] > b[propName]){
+			return 1
+		} else {
+			return -1
+		}
+	})
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
 ## Section 18
