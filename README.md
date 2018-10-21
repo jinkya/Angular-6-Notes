@@ -982,6 +982,16 @@ transform(value: any, propName: string)
 	www.typescriptlang.org
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
+# 7 rule to excel
+		|| Take responsibility of your life.
+		|| Accept failure.
+		|| What you do at 8 pm matters.
+		|| Success is a lonely road. Failure is crowded highway.
+		|| The last 10% is hardest to finish.
+		|| Know why you want it.
+		|| Continuously learn.
+
+
 # Just remember ;) 
 
 		|| People donâ€™t know what they want until you show it to them.
@@ -994,10 +1004,7 @@ transform(value: any, propName: string)
 		|| The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge.
 		|| When you are dead, you do not know you are dead. It's only painful and difficult
 		   for others. The same applies when you are stupid.
-		|| I asked God for a bike, but I know God doesnt work that way. So I stole a bike and
-		   asked for forgiveness.
 		|| The soul usually knows what to do to heal itself. The challenge is to silence the mind.
-		|| 
 
 
 ---------------------------------------------------------------------------------------------
