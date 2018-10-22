@@ -1,4 +1,5 @@
 
+Angular
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
 ## Section 1
@@ -694,6 +695,28 @@ ng g c server/server
 ## Section 13
 ## Understanding observables
 
+### Module Introduction
+
+### Angular 6 and RxJS 6
+
+### Analyzing a Built-in Angular Observable
+
+### Building & Using a First Simple Observable
+
+### Building & Using a Custom Observable from Scratch
+
+### Unsubscribe!
+
+### Where to learn more
+
+### Using Subjects to Pass AND Listen to Data
+
+### Understanding Observable Operators
+
+### RxJS 6 without rxjs-compat
+
+### Wrap Up
+
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
 ## Section 14
@@ -834,6 +857,31 @@ transform(value: any, propName: string)
 ---------------------------------------------------------------------------------------------
 ## Section 22
 ## Deploying an Angular App
+
+### Module Introduction
+
+### Deployment Preparations and Important Steps
+Built your app for production - minify the code 
+Consider AoT Compilation           ng build --prod --aot
+Set the correct < base > element ( for example.com/my-app you should have < base href="/my-app/" > )
+Make sure server always returns index.html ( Routes are registered in angular app, so the server won't know your routes! Return index.html in case of 404 errors! )
+
+### Deploying to AWS S3
+Go to S3 console
+Create bucket
+Enable website hosting
+  Index Document index.html
+  Error Document  index.html
+Permissions
+  Add bucket policy ( visit sample )
+Upload the content 
+  Build your project ng build --prod --aot [ --base-href /my-app ]
+    dist is the folder to deploy
+  click the bucket
+  Actions
+  Upload
+  Add files and upload
+  
 
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
