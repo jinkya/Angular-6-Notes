@@ -1,4 +1,5 @@
 
+
 Angular
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
@@ -731,6 +732,99 @@ Observable  ------------------ stream ( data packages ) ---------->  Observer
 ## Section 15
 ## Handling Forms in Angular Apps
 
+### Module Introduction
+SPA thus not only submit but need to handle the form through angular
+Valid, Conditional form display
+
+### Why do we need angular's help?
+Angular and Forms
+
+<form>
+	<label> Name </label>
+	<input type="text" name="name">
+	<label> Mail </label>
+	<input type="text" name="email">
+	<button type="submit"> Save </button>
+</form>
+
+{
+	value: {
+			name: 'Ajinkya',
+			email: 'test@jinkya.io'
+		}
+	valid: true
+}
+
+### Template Driven vs Reactive Approach
+Two Approaches
+1. Template Driven ( Angular infers the Form Object from the DOM )
+2. Reactive Approach ( Form is created programmatically and synchronised with the DOM )
+
+### An Example Form
+
+
+### TD: Creating the Form and registering the Controls
+
+### TD: Submitting and using the Forms
+
+### TD: Understanding  Form State
+
+### TD: Accessing the Form with @ViewChild
+
+### TD: Adding validation to check user input
+
+### Built-in validation and using HTML 5 Validations
+
+### TD: Using the Form state
+
+### Outputting validation Error messages
+
+### TD: Set Default values with ngModel property binding
+
+### TD: Using  ngModel with Two way Data Binding
+
+### Grouping Form Controls
+
+### Handling Radio Buttons
+
+### Setting and Patching Form Values
+
+### Using Form Data
+
+### Resetting Forms
+
+### Assignment Practice Template-driven Forms
+
+### Introduction to the reactive Driven Approach
+
+### Reactive Setup
+
+### Reactive: Creating a Form in code
+
+### Reactive: Syncing HTML and Form
+
+### Reactive: Submitting the Form
+
+### Reactive: Adding Validations
+
+### Reactive: Getting Access to Controls
+
+### Reactive: Grouping Controls
+
+### Reactive: Arrays of Form Controls ( FormArray )
+
+### Reactive: Creating Custom Validators
+
+### Reactive: Using Error Codes
+
+### Reactive: Creating a custom async Validator
+
+### Reactive: Reacting to status or value changes
+
+### Reactive: Setting and patching values
+
+### Assignment: Practicing reactive Forms
+
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
 ## Section 16
@@ -1153,3 +1247,7 @@ TKinter and QT
 
 Embedded Application
 
+
+_ underline _
+## Heading
+**strong text**
