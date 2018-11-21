@@ -936,6 +936,34 @@ transform(value: any, propName: string)
 ## Section 18
 ## Making Http Request
 
+### Must Read: Angular 6  and Http 
+
+### Introduction and How Http Request works in SPAs
+
+### Firebase and the right Database  
+
+### Example App and backend setup  
+
+### Sending Requests ( Example: POST Request )
+
+### Adjusting Request Headers
+
+### Sending GET Requests  
+
+### Sending a PUT Request  
+
+### RxJS 6 without rxjs-compat  
+
+### Transform Responses easily with Observable Operators  ( map() )
+
+### Using the returned data
+
+### Catching Errors without rxjs-compat  
+
+### Catching Http Errors
+
+### Using the async pipe with Http Requests
+
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
 ## Section 19
