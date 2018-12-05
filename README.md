@@ -1,5 +1,6 @@
 
 
+
 Angular
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
@@ -11,6 +12,7 @@ Angular
 ### 02 What is Angular
 	Reactive Single Page Applications (SPA) Javascript Framework
 ### 03 Angular vs Angular 2 vs Angular 6
+	Angular 7
 	Angular 6						Angular 1
 	Angular 5						|
 	Angular 4               <------ complete rewrite
@@ -19,7 +21,7 @@ Angular
 	Incremental improvment			Not really related to Angular 2
 	No complete rewrite!
 
-	Back in 2015/16 wa complte rewrite
+	Back in 2015/16 was complete rewrite
 	Angular js was the first framework to really make SPA and better way of maniulating DOM
 	Angular 2 was complete rewrite to fix many of angular problems mostly performance
 	So ANgular 2 And higher are known as just Angular
@@ -28,6 +30,7 @@ Angular
 ### 04 CLI deep dive and troubleshooting
 	The Angular CLI is a tool to initialize, develop, scaffold and maintain Angular applications
 	startup commands
+	ng new <project_name>
 
 	Recommended and best way of creting angular projects coz a bit more elaborate regarding build workflow
 	couple of file need to convert before running on browser, thus optimization.
