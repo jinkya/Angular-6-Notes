@@ -980,7 +980,61 @@ transform(value: any, propName: string)
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
 ## Section 21
-## Using Angular Modules and Optimizing Apps
+## Using Angular Modules and Optimizing Apps   
+
+### 277 Module Introduction  
+Modules and optimizing the angular app increasing performance, decrease file size and resr=tructure the project.  
+
+### 278 The idea behind modules  
+Typically application have componenets, pipes, directives, services etc and we have app.module registering all of these. 
+The idea is to tell angular what your app consist of.  We are using only one module in our app, thats not bad or wrong but we can improve our app by including multiple module. More maintanable, and other advantages!
+
+### 279 Understanding the app module  
+The general app module have lot of references. import is related to typescript and not angular and in the end webpack used in the CLI will go for these imports and bundle our app in one final bundle taking these imports and dependencies into account. But angular modules are totally different - angular modules defines how our app loks like to angular and language features and simply required for technical perspective. 
+
+### 280  Understanding features module  
+
+### 281  Creating recipe feature module  
+
+### 282  Module import order  
+
+### 283  Registering routes in a feature module  
+
+### 284  Understanding shared module  
+
+### 285  Creating a shared module  
+
+### 286  Creating a shopping list feature module  
+
+### 287  Loading components via selectors vs routing  
+
+### 288  A common gotcha  
+
+### 289  Creating the auth feature module  
+
+### 290  Understanding lazy loading  
+
+### 291  Adding lazy loading to Recipe modules  
+
+### 292  Protecting lazy loaded routes with canLoad  
+
+### 293  How modules and services work together  
+
+### 294  Understanding the core module  
+
+### 295  Creating a basic core module  
+
+### 296  Restructuring services to use child injector  
+
+### 297  Template interaction and prodcution buuilds  
+
+### 298  Using ahead of time compilation  
+
+### 299  How to use AoT compilation with the CLI  
+
+### 300  Preloading lazy loaded Routes  
+
+### 301  Wrap up
 
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
